@@ -153,7 +153,60 @@
 
 		//Физика игры
 		physic: function () {
+			//Для краткости записи
+			var ball = game.objects.ball,
+				b1 = game.objects.bracket1,
+				b2 = game.objects.bracket2;
 			
+			//Передвигаем шар
+			game.objects.ball.move();
+
+			//Отскок слева
+			if (ball.x + ball.radius/2 < 0) {
+				game.objects.ball.xspeed = -game.objects.ball.xspeed;
+			}
+			//Отскок Справа
+			if (ball.x + ball.radius/2 > game.params.width) {
+				game.objects.ball.xspeed = -game.objects.ball.xspeed;
+			}
+			//Отскок от границ canvas по высоте
+			if (ball.y + ball.radius/2 > game.params.height || ball.y + ball.radius/2 < 0) {
+				game.objects.ball.yspeed = -game.objects.ball.yspeed;
+			}
+
+			
+			//Отскок шарика от 1 блока
+			if(ball.x <= 60 && ball.y >= b1.y && ball.y <= b1.y+b1.h) {
+				ball.xspeed = -ball.xspeed;
+				//Ускоряем шарик
+				ball.xspeed = ball.xspeed * ball.bounce;
+			}
+			//Отскок шарика от 2 блока
+			if(ball.x >= this.params.width-50 && ball.y >= b2.y && ball.y <= b2.y+b2.h) {
+				ball.xspeed = -ball.xspeed;
+				//Ускоряем шарик
+				ball.xspeed = ball.xspeed * ball.bounce;
+			}
+
+			//В состоянии ожидания пуска шарика от ракетки игрока, выставляем шарик рядом с ракеткой забившего игрока.
+			if(this.params.state === 'playerwait') {
+				ball.xspeed = 0;
+				ball.yspeed = 0;
+				if(this.params.lastGoalPlayer === 'player1') {
+					ball.x 	= this.params.lastGoalBracket.x + this.params.lastGoalBracket.w + ball.radius + 1;
+					ball.y 	= this.params.lastGoalBracket.y + this.params.lastGoalBracket.h/2;
+				}
+				if(this.params.lastGoalPlayer === 'player2') {
+					ball.x 	= this.params.lastGoalBracket.x - ball.radius - 1;
+					ball.y 	= this.params.lastGoalBracket.y + this.params.lastGoalBracket.h/2;
+				}
+			}
+
+			//Не позволяем вылезать блокам за canvas и возврщаем их на место
+			if(b1.y <= 0) b1.y = 1; 
+			if(b2.y <= 0) b2.y = 1; 
+			if(b1.y+b1.h >= this.params.height) b1.y = this.params.height-b1.h;
+			if(b2.y+b2.h >= this.params.height) b2.y = this.params.height-b2.h;
 		},
 
 		//Рендер игры
