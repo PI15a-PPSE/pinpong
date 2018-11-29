@@ -254,6 +254,7 @@
 					game.objects.bracket2.y = game.objects.bracket2.y - game.objects.bracket2.speed;
                 } 
                 //E - рестарт шарика
+                //branch 5
 				if(kCode === 69) {
 					this.restartBall();
 				}
