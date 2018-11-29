@@ -243,7 +243,8 @@
 				if(kCode === 50) {
 					game.objects.bracket1.y = game.objects.bracket1.y - game.objects.bracket1.speed;
 				} 
-				//9-вверх 
+                //9-вверх
+                //branch 3
 				if(kCode === 57) {
 					game.objects.bracket2.y = game.objects.bracket2.y + game.objects.bracket2.speed;
 				} 
