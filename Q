@@ -1,0 +1,210 @@
+[33mcommit 8e2a60b391571ff4b536e82a4f1131c9ffdf270b[m[33m ([m[1;36mHEAD -> [m[1;32mlaba3.1[m[33m, [m[1;31morigin/laba3.1[m[33m)[m
+Author: Vadim Volkovskiy <vadim_1423@mail.ru>
+Date:   Thu Nov 29 07:03:17 2018 +0300
+
+    laba3.1 2
+
+[33mcommit 54b24c66f8b824a2401749ae1d426c691a93a0b7[m
+Author: Vadim Volkovskiy <vadim_1423@mail.ru>
+Date:   Thu Nov 29 07:00:28 2018 +0300
+
+    laba3.1 1
+
+[33mcommit 878ebc1afe064e6ee7f60b49b9d92479f2c16140[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmaster[m[33m, [m[1;32mlaba3.2[m[33m)[m
+Author: Vadim Volkovskiy <vadim_1423@mail.ru>
+Date:   Thu Nov 29 06:56:39 2018 +0300
+
+    update labs
+
+[33mcommit 5d5e07b1c15fe568b14f4d5fe02da6f0834cdf37[m
+Merge: 2a0954f 7b0ddb9
+Author: Vadim Volkovskiy <vadim_1423@mail.ru>
+Date:   Thu Nov 29 06:50:56 2018 +0300
+
+    Merge branch 'l2'
+
+[33mcommit 2a0954fa5e32595e0f17777e98756d2b782b585c[m
+Author: Vadim Volkovskiy <vadim_1423@mail.ru>
+Date:   Thu Nov 29 06:49:49 2018 +0300
+
+    master pauseGame
+
+[33mcommit 7b0ddb98f516fc9f0cac19754b14bc002ea0662c[m[33m ([m[1;31morigin/l2[m[33m)[m
+Author: Vadim Volkovskiy <vadim_1423@mail.ru>
+Date:   Thu Nov 29 06:48:05 2018 +0300
+
+    b2 5
+
+[33mcommit 8791d388c1d05afed4c712cd7d57531124357a71[m
+Author: Vadim Volkovskiy <vadim_1423@mail.ru>
+Date:   Thu Nov 29 06:47:02 2018 +0300
+
+    b2 4
+
+[33mcommit 13580262332106282204322355919753fa74c62c[m
+Author: Vadim Volkovskiy <vadim_1423@mail.ru>
+Date:   Thu Nov 29 06:46:09 2018 +0300
+
+    b2
+
+[33mcommit 0d30ab4f5d776ffe45c08a17e7b579d52d5b68ae[m
+Author: Vadim Volkovskiy <vadim_1423@mail.ru>
+Date:   Thu Nov 29 06:45:42 2018 +0300
+
+    b2 2
+
+[33mcommit bbd31b462fd7b9a45085b070a2ca3e38a67095a4[m
+Author: Vadim Volkovskiy <vadim_1423@mail.ru>
+Date:   Thu Nov 29 06:44:47 2018 +0300
+
+    b2 1
+
+[33mcommit f796a5d671a029657b83b06b640cdac7c5d5767b[m[33m ([m[1;31morigin/laba2[m[33m)[m
+Author: Vadim Volkovskiy <vadim_1423@mail.ru>
+Date:   Thu Nov 29 06:35:46 2018 +0300
+
+    branch new new 5 stopGame : (end)
+
+[33mcommit 940ed945a1aa269cd5dbbabf2e6887e52291523b[m
+Author: Vadim Volkovskiy <vadim_1423@mail.ru>
+Date:   Thu Nov 29 06:34:21 2018 +0300
+
+    branch new new 4 stopGame : (...)
+
+[33mcommit 78723d9e40189ec44319c1c61926d28a10df2bab[m
+Author: Vadim Volkovskiy <vadim_1423@mail.ru>
+Date:   Thu Nov 29 06:33:31 2018 +0300
+
+    branch new new 3 stopGame : (Start)
+
+[33mcommit f140d9a88c03369f60b31bca6f6997b77cd6cb60[m
+Author: Vadim Volkovskiy <vadim_1423@mail.ru>
+Date:   Thu Nov 29 06:31:20 2018 +0300
+
+    branch new new 2 kickBall
+
+[33mcommit bc60b60cf1bc4aef6b8cc9ea3e105cf808c4ec63[m
+Author: Vadim Volkovskiy <vadim_1423@mail.ru>
+Date:   Thu Nov 29 06:06:06 2018 +0300
+
+    branch new new 1 keDawnEvent : (end)
+
+[33mcommit cb06c3ed6c72a214dd89665a8bc05d48157fedad[m
+Author: Vadim Volkovskiy <vadim_1423@mail.ru>
+Date:   Thu Nov 29 05:50:49 2018 +0300
+
+    new branch 1 Game.prototype keyDownEvent :(start)
+
+[33mcommit 3d0dc05d16b1c6ea9af667c099677485b8da5f79[m
+Author: Vadim Volkovskiy <vadim_1423@mail.ru>
+Date:   Thu Nov 29 05:20:25 2018 +0300
+
+    branch + file
+
+[33mcommit c371cf12722b6d6d964c82767a6ca0086fb7aea5[m
+Author: Vadim Volkovskiy <vadim_1423@mail.ru>
+Date:   Thu Nov 29 05:15:15 2018 +0300
+
+    branch 5 Game.prototype renderRate
+
+[33mcommit 6f51f9ef60a613db52048bc02b586efad1081a30[m
+Author: Vadim Volkovskiy <vadim_1423@mail.ru>
+Date:   Thu Nov 29 05:14:40 2018 +0300
+
+    branch 4 Game.prototype render
+
+[33mcommit b1f8d79fc9def61d825afb183be1bdd3b1f6f833[m
+Author: Vadim Volkovskiy <vadim_1423@mail.ru>
+Date:   Thu Nov 29 05:13:37 2018 +0300
+
+    branch  Game.prototype physic
+
+[33mcommit 50822de5a74c49b82a43a6c07c7d32aa8a04ab0b[m
+Author: Vadim Volkovskiy <vadim_1423@mail.ru>
+Date:   Thu Nov 29 05:12:21 2018 +0300
+
+    branch 2 Game.prototype logic :(end)
+
+[33mcommit 55a74f174fbc4d5a5e391eeb51a6b415d6a4eada[m
+Author: Vadim Volkovskiy <vadim_1423@mail.ru>
+Date:   Thu Nov 29 05:10:10 2018 +0300
+
+    branch 1 Game.prototype logic :(start)
+
+[33mcommit b3491efacf7bb6cf59d89e337e88245b4314bcd8[m
+Author: Vadim Volkovskiy <vadim_1423@mail.ru>
+Date:   Thu Nov 29 04:11:05 2018 +0300
+
+    Update file script.js init Game.prototype loop
+
+[33mcommit e7884ea62e5e01b7b979173f1b21af54839662db[m
+Author: Vadim Volkovskiy <vadim_1423@mail.ru>
+Date:   Thu Nov 29 03:51:31 2018 +0300
+
+    update file script.js finish Game.prototype startGame
+
+[33mcommit 3e40df71c8f4caac589a8abf09115f563dcf322f[m
+Author: Vadim Volkovskiy <vadim_1423@mail.ru>
+Date:   Thu Nov 29 03:50:10 2018 +0300
+
+    update file script.js
+
+[33mcommit 3d425d25f6cfec58805274396619496b59218f22[m
+Author: Vadim Volkovskiy <vadim_1423@mail.ru>
+Date:   Thu Nov 29 03:48:01 2018 +0300
+
+    update file script.js
+
+[33mcommit f202fcc2142408b3e2a0d618666dfdc2e1a31ed0[m
+Author: Vadim Volkovskiy <vadim_1423@mail.ru>
+Date:   Thu Nov 29 03:47:10 2018 +0300
+
+    update file script.js initialization Bracket
+
+[33mcommit c3245cf17bcbb0e64ebce3bc5b86d7f517cc9929[m
+Author: Vadim Volkovskiy <vadim_1423@mail.ru>
+Date:   Thu Nov 29 03:45:31 2018 +0300
+
+    update file script.js
+
+[33mcommit 8ae59bc3aabd96e033406e82b86a11adec5682fc[m
+Author: Vadim Volkovskiy <vadim_1423@mail.ru>
+Date:   Thu Nov 29 03:44:28 2018 +0300
+
+    update file script.js initialization Bracket
+
+[33mcommit a6df30a2b6150d6edbcc0944634dddc5be1d6d87[m
+Author: Vadim Volkovskiy <vadim_1423@mail.ru>
+Date:   Thu Nov 29 03:28:01 2018 +0300
+
+    инициализация Ball и микро вправки
+
+[33mcommit 58cd3c0dc631cf79f7861b84367ca36f86e297dc[m
+Author: Vadim Volkovskiy <vadim_1423@mail.ru>
+Date:   Thu Nov 29 03:14:31 2018 +0300
+
+    создание методов для прототипа Game
+
+[33mcommit d2e700cbe85fece718176eaf9b8b62c32f26dcab[m
+Author: Vadim Volkovskiy <vadim_1423@mail.ru>
+Date:   Thu Nov 29 03:09:57 2018 +0300
+
+    Создание каркаса
+
+[33mcommit 1e50ed628f1587c9a843c40cf841632ed4c24591[m
+Author: Vadim Volkovskiy <vadim_1423@mail.ru>
+Date:   Thu Nov 29 03:04:27 2018 +0300
+
+    добавления стилей и файла для логики программы
+
+[33mcommit 1479ecfd3573b41fcfbeed4fd1bba3b721b9878c[m
+Author: Vadim Volkovskiy <vadim_1423@mail.ru>
+Date:   Thu Nov 29 02:53:43 2018 +0300
+
+    добавить каркас main.html и библиотеку
+
+[33mcommit 213a5a4f3772eecab96f5d820658f04e637d0784[m
+Author: VadimVolkovskiy <45246820+VadimTop1@users.noreply.github.com>
+Date:   Thu Nov 29 02:11:21 2018 +0300
+
+    Initial commit
