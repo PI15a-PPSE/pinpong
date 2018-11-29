@@ -211,7 +211,15 @@
 
 		//Рендер игры
 		render: function () {
-			
+			//Чистим канвас на каждом кадре
+			game.ctx.fillStyle = '#eeeeee';
+			game.ctx.fillRect(0,0, game.params.width, game.params.height);
+
+			//Рендерим шарик
+			game.objects.ball.render(game.ctx);
+			game.objects.bracket1.render(game.ctx);
+			game.objects.bracket2.render(game.ctx);
+			game.renderRate(game.ctx);
 		},
 		
 		//Показываем счет игры
