@@ -276,7 +276,12 @@
 			//Обновляем состояние
             this.params.state = 'stop';
             //Останавливаем цикл
-			cancelAnimationFrame(this.requestLoop);
+            cancelAnimationFrame(this.requestLoop);
+            //Убираем слушателей событий
+			document.removeEventListener('keydown', this.keyDownEvent);
+			
+			//Чистим игровые объекты
+			delete(this.objects);
 		},
         
         //пауза
