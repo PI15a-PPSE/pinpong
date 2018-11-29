@@ -29,7 +29,16 @@
 	//Блоки для отбивания шарика
 	var Bracket = function () {
 		return {
-			
+			w: 10,
+			h: 100,
+			x: 0,
+			y: 0,
+			speed: 20,
+			color: '#000000',
+			render: function (ctx) {
+				ctx.fillStyle = this.color;
+				ctx.fillRect(this.x, this.y, this.w, this.h);
+			}
 		}
 	};
 
