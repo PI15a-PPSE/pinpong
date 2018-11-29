@@ -265,7 +265,9 @@
 		
 		//Пуск шарика после гола
 		kickBall: function () {
-			
+			this.objects.ball.xspeed = 3;
+			this.objects.ball.yspeed = 3;
+			this.params.state = 'game';
 		},
 
 		
