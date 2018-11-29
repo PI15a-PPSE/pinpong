@@ -74,7 +74,12 @@
 	Game.prototype = {
         //Старт игры
 		startGame: function () {
-			
+			//Инициализируем игровые объекты
+			this.objects = {
+
+            };
+            //Меняем состояние
+			this.params.state = 'game';
 			//Запускаем игровой цикл
 			this.loop();
 		},
