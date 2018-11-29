@@ -54,7 +54,10 @@
         var _this = this;
 
         this.params = {
-			
+			width: 960,
+			height: 600,
+			state: 'loading', //Состояние игры
+			maxRate: 10 //до скольки будет идти матч.
         };
 
         //Сохраняем ссылки на canvas и контекст для дальнейшего рисования
@@ -62,7 +65,7 @@
 		this.ctx = this.canvasBlock.getContext('2d');
         //Подписываемся на события кнопок
 		document.addEventListener('keydown', function (event) {
-			
+			_this.keyDownEvent.call(_this, event);
 		});
 		return this;
 	};
