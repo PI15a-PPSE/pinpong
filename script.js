@@ -232,7 +232,23 @@
 
 		//Инициализация игровых событий
 		keyDownEvent: function (event) {
-			
+			var kCode = event.keyCode;
+				//1-вверх 
+				if(kCode === 49) {
+					game.objects.bracket1.y = game.objects.bracket1.y + game.objects.bracket1.speed;
+				} 
+				//2-вниз
+				if(kCode === 50) {
+					game.objects.bracket1.y = game.objects.bracket1.y - game.objects.bracket1.speed;
+				} 
+				//9-вверх 
+				if(kCode === 57) {
+					game.objects.bracket2.y = game.objects.bracket2.y + game.objects.bracket2.speed;
+				} 
+				//0-вниз
+				if(kCode === 48) {
+					game.objects.bracket2.y = game.objects.bracket2.y - game.objects.bracket2.speed;
+				} 
 		},
 		
 		//Пуск шарика после гола
