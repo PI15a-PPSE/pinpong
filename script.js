@@ -124,6 +124,30 @@
 					this.params.lastGoalBracket = this.objects.bracket2;
 					this.params.lastGoalPlayer = 'player2';
 				}
+
+				//Шарик оказался за выторым игроком
+				if (ball.x + ball.radius/2 > game.params.width) {
+					//Засчтитаем гол
+					this.objects.player1.rate++;
+					//Сменим состояние игры
+					this.params.state = 'playerwait';
+					//Сохарним информацию о забившем
+					this.params.lastGoalBracket = this.objects.bracket1;
+					this.params.lastGoalPlayer = 'player1';
+				}
+
+				//Проверяем наличие победителя
+				//Если кто-то из игроков набрал необходимое количество очков
+				//Он выиграл
+				if(this.objects.player1.rate === this.params.maxRate) {
+					alert('1 игрок выиграл');
+					this.gameRestart();
+				}
+
+				if(this.objects.player2.rate === this.params.maxRate) {
+					alert('2 игрок выиграл');
+					this.gameRestart();
+				}
 			}
 		},
 
