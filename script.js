@@ -97,7 +97,16 @@
 		//Игровой цикл
 		loop: function () {
             var _this = this;
-			
+
+            this.logic();
+
+            this.physic();
+            
+            this.render();
+            
+			this.requestLoop = requestAnimationFrame(function(){
+				_this.loop.call(_this);
+			});
 		},
 
 		//Логика игры
