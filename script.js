@@ -53,6 +53,17 @@
 	var Game = function () {
         var _this = this;
 
+        this.params = {
+			
+        };
+
+        //Сохраняем ссылки на canvas и контекст для дальнейшего рисования
+		this.canvasBlock = document.getElementById('pingpong');
+		this.ctx = this.canvasBlock.getContext('2d');
+        //Подписываемся на события кнопок
+		document.addEventListener('keydown', function (event) {
+			
+		});
 		return this;
 	};
 
