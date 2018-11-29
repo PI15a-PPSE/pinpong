@@ -103,7 +103,7 @@
             this.physic();
             
             this.render();
-            
+
 			this.requestLoop = requestAnimationFrame(function(){
 				_this.loop.call(_this);
 			});
@@ -111,7 +111,20 @@
 
 		//Логика игры
 		logic: function () {
+            //Если сейчас идет игра
+			if(this.params.state == 'game') {
 
+				//И шарик оказался за первым игроком
+				if (ball.x + ball.radius/2 < 0) {
+					//Засчтитаем гол
+					this.objects.player2.rate++;
+					//Сменим состояние игры
+					this.params.state = 'playerwait';
+					//Сохарним информацию о забившем
+					this.params.lastGoalBracket = this.objects.bracket2;
+					this.params.lastGoalPlayer = 'player2';
+				}
+			}
 		},
 
 		//Физика игры
