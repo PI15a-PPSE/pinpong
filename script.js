@@ -233,7 +233,8 @@
 		//Инициализация игровых событий
 		keyDownEvent: function (event) {
 			var kCode = event.keyCode;
-				//1-вверх 
+                //1-вверх
+                //branch 1 
 				if(kCode === 49) {
 					game.objects.bracket1.y = game.objects.bracket1.y + game.objects.bracket1.speed;
 				} 
