@@ -224,7 +224,10 @@
 		
 		//Показываем счет игры
 		renderRate: function (ctx) {
-			
+			var rateText = game.objects.player1.rate + ' : ' + game.objects.player2.rate;
+			ctx.fillStyle = '#000000';
+			ctx.font = "20px Arial";
+			ctx.fillText(rateText,game.params.width/2,50);
 		},
 
 		//Инициализация игровых событий
