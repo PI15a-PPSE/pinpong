@@ -273,7 +273,8 @@
 		
 		//Стоп игра
 		stopGame: function () {
-			
+			//Обновляем состояние
+			this.params.state = 'stop';
 		},
         
         //пауза
