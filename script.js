@@ -248,7 +248,19 @@
 				//0-вниз
 				if(kCode === 48) {
 					game.objects.bracket2.y = game.objects.bracket2.y - game.objects.bracket2.speed;
-				} 
+                } 
+                //E - рестарт шарика
+				if(kCode === 69) {
+					this.restartBall();
+				}
+				//R - рестарт игры
+				if(kCode === 82) {
+					this.restartGame();
+				}
+				//Пробел - пуск шарика
+				if(kCode === 32 && game.params.state === 'playerwait') {
+					this.kickBall();
+				}
 		},
 		
 		//Пуск шарика после гола
