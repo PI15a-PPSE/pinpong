@@ -233,23 +233,28 @@
 		//Инициализация игровых событий
 		keyDownEvent: function (event) {
 			var kCode = event.keyCode;
-				//1-вверх 
+                //1-вверх
+                //branch 1 
 				if(kCode === 49) {
 					game.objects.bracket1.y = game.objects.bracket1.y + game.objects.bracket1.speed;
 				} 
-				//2-вниз
+                //2-вниз
+                //branch 2
 				if(kCode === 50) {
 					game.objects.bracket1.y = game.objects.bracket1.y - game.objects.bracket1.speed;
 				} 
-				//9-вверх 
+                //9-вверх
+                //branch 3
 				if(kCode === 57) {
 					game.objects.bracket2.y = game.objects.bracket2.y + game.objects.bracket2.speed;
 				} 
-				//0-вниз
+                //0-вниз
+                //branch 4
 				if(kCode === 48) {
 					game.objects.bracket2.y = game.objects.bracket2.y - game.objects.bracket2.speed;
                 } 
                 //E - рестарт шарика
+                //branch 5
 				if(kCode === 69) {
 					this.restartBall();
 				}
