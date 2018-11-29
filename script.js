@@ -79,7 +79,17 @@
 
             };
             //Меняем состояние
-			this.params.state = 'game';
+            this.params.state = 'game';
+            
+            //Расставляем стартовые позиции ракеток
+			this.objects.bracket1.x = 50;
+			this.objects.bracket1.y = this.params.height / 2 - this.objects.bracket1.h / 2;
+			
+			this.objects.bracket2.x = this.params.width - 50;
+			this.objects.bracket2.y = this.params.height / 2 - this.objects.bracket1.h / 2;
+
+			//Перекрасим второго игрока
+			this.objects.bracket2.color = '#000000';
 			//Запускаем игровой цикл
 			this.loop();
 		},
