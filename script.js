@@ -279,29 +279,33 @@
 		//Стоп игра
 		stopGame: function () {
 			//Обновляем состояние
-            this.params.state = 'stop';
-            //Останавливаем цикл
-            cancelAnimationFrame(this.requestLoop);
-            //Убираем слушателей событий
+			this.params.state = 'stop';
+			//Останавливаем цикл
+			cancelAnimationFrame(this.requestLoop);
+
+			//Убираем слушателей событий
 			document.removeEventListener('keydown', this.keyDownEvent);
 			
 			//Чистим игровые объекты
 			delete(this.objects);
 		},
-        
-        //пауза
+		
 		pauseGame: function () {
 			this.state = 'pause';
 		},
 
 		//Рестарт шарика
 		restartBall: function () {
-			
+			this.objects.ball.x = game.params.width/2;
+			this.objects.ball.y = game.params.height/2;
+			this.objects.ball.xspeed = 3;
+			this.objects.ball.yspeed = 3;
 		},
 
 		//Рестарт игры
 		restartGame: function () {
-			
+			this.stopGame();
+			this.startGame();
 		}
 	};
 
