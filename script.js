@@ -30,7 +30,67 @@
 
 	//В прототип будем писать методы всякие игровые
 	Game.prototype = {
+        //Старт игры
+		startGame: function () {
+			
+			//Запускаем игровой цикл
+			this.loop();
+		},
 
+		//Игровой цикл
+		loop: function () {
+			
+		},
+
+		//Логика игры
+		logic: function () {
+
+		},
+
+		//Физика игры
+		physic: function () {
+			
+		},
+
+		//Рендер игры
+		render: function () {
+			
+		},
+		
+		//Показываем счет игры
+		renderRate: function (ctx) {
+			
+		},
+
+		//Инициализация игровых событий
+		keyDownEvent: function (event) {
+			
+		},
+		
+		//Пуск шарика после гола
+		kickBall: function () {
+			
+		},
+
+		
+		//Стоп игра
+		stopGame: function () {
+			
+		},
+		
+		pauseGame: function () {
+			
+		},
+
+		//Рестарт шарика
+		restartBall: function () {
+			
+		},
+
+		//Рестарт игры
+		restartGame: function () {
+			
+		}
 	};
 
 	//При загрузке window, стартуем нашу игру
