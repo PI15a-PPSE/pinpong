@@ -45,7 +45,7 @@
 	//Собственно сам игрок с его свойствами
 	var Player = function () {
 		return {
-			
+			rate: 0
 		};
 	};
 
