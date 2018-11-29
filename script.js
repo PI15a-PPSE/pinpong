@@ -286,7 +286,7 @@
         
         //пауза
 		pauseGame: function () {
-			
+			this.state = 'pause';
 		},
 
 		//Рестарт шарика
