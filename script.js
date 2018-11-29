@@ -274,7 +274,9 @@
 		//Стоп игра
 		stopGame: function () {
 			//Обновляем состояние
-			this.params.state = 'stop';
+            this.params.state = 'stop';
+            //Останавливаем цикл
+			cancelAnimationFrame(this.requestLoop);
 		},
         
         //пауза
