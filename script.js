@@ -304,7 +304,8 @@
 
 		//Рестарт игры
 		restartGame: function () {
-			this.stopGame();
+            this.stopGame();
+            this.startGame();
 		}
 	};
 
