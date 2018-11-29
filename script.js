@@ -4,7 +4,25 @@
 	//Опишем наши игровые объекты + научим их рисовать себя на канвасе и передвигаться
 	var Ball = function () {
 		return {
-			
+			radius: 8,
+			color: '#000000',
+			x: 0,
+			y: 0,
+			yspeed: 5,
+			xspeed: 7,
+			bounce: 1.1, //коофицент упругости - для ускорения шарика после отскока
+			render: function (ctx) {
+				ctx.beginPath();
+				ctx.arc(this.x, this.y, this.radius, 0, 2*Math.PI);
+				ctx.fillStyle = this.color;
+				ctx.fill();
+			},
+			//Передвижение шара всегда происходит с определенной скоростью 
+			//по этому мы не будем передавть x y для кастомного перемещения.
+			move: function () {
+				this.x = this.x + this.xspeed;
+				this.y = this.y + this.yspeed;
+			}
 		}
 	};
 
@@ -24,6 +42,7 @@
 
 	//Теперь сама игра
 	var Game = function () {
+        var _this = this;
 
 		return this;
 	};
@@ -39,6 +58,7 @@
 
 		//Игровой цикл
 		loop: function () {
+            var _this = this;
 			
 		},
 
@@ -77,7 +97,8 @@
 		stopGame: function () {
 			
 		},
-		
+        
+        //пауза
 		pauseGame: function () {
 			
 		},
@@ -95,6 +116,8 @@
 
 	//При загрузке window, стартуем нашу игру
 	window.onload = function () {
-        //Game Start!!
+        window.game = new Game();
+		
+		game.startGame();
 	}		
 })();
