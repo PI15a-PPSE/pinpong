@@ -296,7 +296,10 @@
 
 		//Рестарт шарика
 		restartBall: function () {
-			
+			this.objects.ball.x = game.params.width/2;
+			this.objects.ball.y = game.params.height/2;
+            this.objects.ball.xspeed = 3;
+            this.objects.ball.yspeed = 3;
 		},
 
 		//Рестарт игры
