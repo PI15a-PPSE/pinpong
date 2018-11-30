@@ -137,7 +137,7 @@
 			this.objects.bracket1.x = 50;
 			this.objects.bracket1.y = this.params.height / 2 + this.objects.bracket1.h / 2;
 			
-			this.objects.bracket2.x = this.params.width + 50;
+			this.objects.bracket2.x = this.params.width - 50;
 			this.objects.bracket2.y = this.params.height / 2 - this.objects.bracket1.h / 2;
 
 			//Перекрасим второго игрока
