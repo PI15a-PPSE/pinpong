@@ -249,7 +249,7 @@
 
 			//Отскок слева
 			if (ball.x + ball.radius/2 < 0) {
-				game.objects.ball.xspeed += game.objects.ball.xspeed;
+				game.objects.ball.xspeed = -game.objects.ball.xspeed;
 			}
 			//Отскок Справа
 			if (ball.x + ball.radius/2 > game.params.width) {
