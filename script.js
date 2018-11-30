@@ -51,37 +51,48 @@
 
 	//Теперь сама игра
 	var Game = function () {
-        var _this = this;
-
-        this.params = {
+		//Сохраним ссылку на контекст
+		//для дальнейшей передачи в ивенты
+		var _this = this;
+		
+		//Параметры с которыми будет игра
+		this.params = {
 			width: 960,
 			height: 600,
 			state: 'loading', //Состояние игры
 			maxRate: 10 //до скольки будет идти матч.
-        };
+		};
 
-        //Сохраняем ссылки на canvas и контекст для дальнейшего рисования
+		//Сохраняем ссылки на canvas и контекст для дальнейшего рисования
 		this.canvasBlock = document.getElementById('pingpong');
 		this.ctx = this.canvasBlock.getContext('2d');
-        //Подписываемся на события кнопок
+
+		//Подписываемся на события кнопок
 		document.addEventListener('keydown', function (event) {
 			_this.keyDownEvent.call(_this, event);
 		});
+
 		return this;
 	};
 
 	//В прототип будем писать методы всякие игровые
 	Game.prototype = {
-        //Старт игры
+		//Старт игры
 		startGame: function () {
+			var _this = this;
+
 			//Инициализируем игровые объекты
 			this.objects = {
+				ball: new Ball(),
+				player1: new Player(),
+				player2: new Player(),
+				bracket1: new Bracket(),
+				bracket2: new Bracket()
+			};
+			//Меняем состояние
+			this.params.state = 'game';
 
-            };
-            //Меняем состояние
-            this.params.state = 'game';
-            
-            //Расставляем стартовые позиции ракеток
+			//Расставляем стартовые позиции ракеток
 			this.objects.bracket1.x = 50;
 			this.objects.bracket1.y = this.params.height / 2 - this.objects.bracket1.h / 2;
 			
@@ -90,20 +101,23 @@
 
 			//Перекрасим второго игрока
 			this.objects.bracket2.color = '#000000';
+			
 			//Запускаем игровой цикл
 			this.loop();
 		},
 
 		//Игровой цикл
 		loop: function () {
-            var _this = this;
+			var _this = this;
+			
+			//Логика игры
+			this.logic();
+			//Физика игры
+			this.physic();
+			//Рендер игры
+			this.render();
 
-            this.logic();
-
-            this.physic();
-            
-            this.render();
-
+			//Используем замыкание для передачи контекста
 			this.requestLoop = requestAnimationFrame(function(){
 				_this.loop.call(_this);
 			});
@@ -111,7 +125,11 @@
 
 		//Логика игры
 		logic: function () {
-            //Если сейчас идет игра
+
+			//Для краткости записи
+			var ball = game.objects.ball;
+
+			//Если сейчас идет игра
 			if(this.params.state == 'game') {
 
 				//И шарик оказался за первым игроком
@@ -149,6 +167,7 @@
 					this.gameRestart();
 				}
 			}
+
 		},
 
 		//Физика игры
@@ -233,28 +252,23 @@
 		//Инициализация игровых событий
 		keyDownEvent: function (event) {
 			var kCode = event.keyCode;
-                //1-вверх
-                //branch 1 
+				//1-вверх 
 				if(kCode === 49) {
 					game.objects.bracket1.y = game.objects.bracket1.y + game.objects.bracket1.speed;
 				} 
-                //2-вниз
-                //branch 2
+				//2-вниз
 				if(kCode === 50) {
 					game.objects.bracket1.y = game.objects.bracket1.y - game.objects.bracket1.speed;
 				} 
-                //9-вверх
-                //branch 3
+				//9-вверх 
 				if(kCode === 57) {
 					game.objects.bracket2.y = game.objects.bracket2.y + game.objects.bracket2.speed;
 				} 
-                //0-вниз
-                //branch 4
+				//0-вниз
 				if(kCode === 48) {
 					game.objects.bracket2.y = game.objects.bracket2.y - game.objects.bracket2.speed;
-                } 
-                //E - рестарт шарика
-                //branch 5
+				} 
+				//E - рестарт шарика
 				if(kCode === 69) {
 					this.restartBall();
 				}
@@ -311,7 +325,7 @@
 
 	//При загрузке window, стартуем нашу игру
 	window.onload = function () {
-        window.game = new Game();
+		window.game = new Game();
 		
 		game.startGame();
 	}		
