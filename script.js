@@ -253,7 +253,7 @@
 			}
 			//Отскок Справа
 			if (ball.x + ball.radius/2 > game.params.width) {
-				game.objects.ball.xspeed += game.objects.ball.xspeed;
+				game.objects.ball.xspeed = -game.objects.ball.xspeed;
 			}
 			//Отскок от границ canvas по высоте
 			if (ball.y + ball.radius/2 > game.params.height || ball.y + ball.radius/2 < 0) {
