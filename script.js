@@ -257,7 +257,7 @@
 			}
 			//Отскок от границ canvas по высоте
 			if (ball.y + ball.radius/2 > game.params.height || ball.y + ball.radius/2 < 0) {
-				game.objects.ball.yspeed += game.objects.ball.yspeed;
+				game.objects.ball.yspeed = -game.objects.ball.yspeed;
 			}
 
 			
