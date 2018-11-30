@@ -1,7 +1,25 @@
+/**
+* Транспортное средство
+*
+* Класс описывает игру pinpong.
+*
+* @author Vadim VOlkovskiy
+* @version 1.0.5
+* @copyright GNU Public License
+* @todo Реализовать все методы
+*/
 (function(){
 	'use strict';
 	
-	//Опишем наши игровые объекты + научим их рисовать себя на канвасе и передвигаться
+	/**
+	* Мяч
+	*
+	* Свойства описывающие скорость движения, шаг по y, шаг по x,
+	* цвет, стартовые координат, радиус, коофицент упругости - для 
+	* ускорения шарика после отскока
+	*
+	* @var object Ball
+	*/
 	var Ball = function () {
 		return {
 			radius: 8,
@@ -26,7 +44,14 @@
 		}
 	};
 
-	//Блоки для отбивания шарика
+	/**
+	* Ракетка
+	*
+	* Свойства описывающие скорость движения, размеры
+	* цвет, стартовые координаты
+	*
+	* @var object Bracket
+	*/
 	var Bracket = function () {
 		return {
 			w: 10,
@@ -42,14 +67,26 @@
 		}
 	};
 
-	//Собственно сам игрок с его свойствами
+	/**
+	* Игрок
+	*
+	* Свойства описывающие скорость игрока
+	*
+	* @var object Player
+	*/
 	var Player = function () {
 		return {
 			rate: 0
 		};
 	};
 
-	//Теперь сама игра
+	/**
+	* Игра пинпонг
+	*
+	* Свойства определяют и описывают базавые параметры
+	*
+	* @var object Game
+	*/
 	var Game = function () {
 		//Сохраним ссылку на контекст
 		//для дальнейшей передачи в ивенты
@@ -77,7 +114,11 @@
 
 	//В прототип будем писать методы всякие игровые
 	Game.prototype = {
-		//Старт игры
+		/**
+		* Работа с методом startGame {} Старт игры
+		* иницилизирует базовые параметры
+		* this.loop(); Запускает игровой цикл
+		*/
 		startGame: function () {
 			var _this = this;
 
@@ -106,7 +147,16 @@
 			this.loop();
 		},
 
-		//Игровой цикл
+		/**
+		* Работа с методом loop {} игровой цикл
+		*
+		* Запускает методы для логики ,физики и 
+		* рендера игры
+		*
+		* @param .requestLoop Используем замыкание 
+		*					  для передачи контекста 
+		* @return var _this 
+		*/
 		loop: function () {
 			var _this = this;
 			
@@ -123,7 +173,12 @@
 			});
 		},
 
-		//Логика игры
+		/**
+		* Работа с методом logic {} Логика игры
+		* @param var ball иницилизирует переменную уже 
+		* 				  имеющимся значением в game.objects.ball
+		* @return void
+		*/
 		logic: function () {
 
 			//Для краткости записи
@@ -170,7 +225,19 @@
 
 		},
 
-		//Физика игры
+		/**
+		* Работа с методом physic {} Физика игры
+		*
+		* Выполняеться определения границ поля. Запуск шара, отскоки от ракеток
+		*
+		* @param var ball иницилизирует переменную уже 
+		* 				  имеющимся значением в game.objects.ball
+		*		 var b1   иницилизирует переменную уже 
+		* 				  имеющимся значением в game.objects.bracket1
+		*        var b2   иницилизирует переменную уже 
+		* 				  имеющимся значением в game.objects.bracket2
+		* @return void
+		*/
 		physic: function () {
 			//Для краткости записи
 			var ball = game.objects.ball,
@@ -228,7 +295,14 @@
 			if(b2.y+b2.h >= this.params.height) b2.y = this.params.height-b2.h;
 		},
 
-		//Рендер игры
+		/**
+		* Работа с методом render {} Рендер игры
+		*
+		* Отображаем объекты
+		*
+		* @param game.ctx.fillStyle 			иницилизирует параметр для отображения цвета канваса	 
+		* @return void
+		*/
 		render: function () {
 			//Чистим канвас на каждом кадре
 			game.ctx.fillStyle = '#eeeeee';
@@ -241,7 +315,16 @@
 			game.renderRate(game.ctx);
 		},
 		
-		//Показываем счет игры
+		/**
+		* Работа с методом renderRate {} показываем счет игры
+		*
+		* отображения счета игры
+		*
+		* @param var rateText	string	параметр для хранения счета в троке	 
+		*		 ctx.fillStyle          иницилизирует параметр для отображения цвета текста
+		*		 ctx.font               иницилизирует параметр для отображения шрифта и размр текста
+		* @return void
+		*/
 		renderRate: function (ctx) {
 			var rateText = game.objects.player1.rate + ' : ' + game.objects.player2.rate;
 			ctx.fillStyle = '#000000';
@@ -249,7 +332,14 @@
 			ctx.fillText(rateText,game.params.width/2,50);
 		},
 
-		//Инициализация игровых событий
+		/**
+		* Работа с методом keyDownEvent {} Инициализация игровых событий
+		*
+		* Слежение за нажатием клавишь и обработка эти нажатия
+		*
+		* @param var kCode	хранит в себе код нажатой кнопки
+		* @return void
+		*/
 		keyDownEvent: function (event) {
 			var kCode = event.keyCode;
 				//1-вверх 
@@ -282,7 +372,17 @@
 				}
 		},
 		
-		//Пуск шарика после гола
+		/**
+		* Работа с методом keyDownEvent {} Пуск шарика после гола
+		*
+		* Пуск шарика после гола
+		*
+		* @param 	this.objects.ball.xspeed	шаг передвижения по x
+		*			this.objects.ball.yspeed	шаг передвижения по y
+		*			this.params.state			текущий статус игры
+		*
+		* @return void
+		*/
 		kickBall: function () {
 			this.objects.ball.xspeed = 3;
 			this.objects.ball.yspeed = 3;
@@ -290,7 +390,15 @@
 		},
 
 		
-		//Стоп игра
+		/**
+		* Работа с методом stopGame {} стоп игра
+		*
+		* останавливает игру
+		*
+		* @param 	this.params.state			текущий статус игры
+		*
+		* @return void
+		*/
 		stopGame: function () {
 			//Обновляем состояние
 			this.params.state = 'stop';
@@ -304,11 +412,31 @@
 			delete(this.objects);
 		},
 		
+		/**
+		* Работа с методом pauseGame {}  пауза для игры
+		*
+		* останавливает игру на текущем моенте с возможность продолжить
+		*
+		* @param 	this.params.state			текущий статус игры
+		*
+		* @return void
+		*/
 		pauseGame: function () {
 			this.state = 'pause';
 		},
 
-		//Рестарт шарика
+		/**
+		* Работа с методом restartBall {}  рестарт мяча
+		*
+		* запускает заного мяч в игру
+		*
+		* @param 	this.objects.ball.xspeed	шаг передвижения по x
+		*			this.objects.ball.yspeed	шаг передвижения по y
+		*			this.objects.ball.x 		стартовая позиция по x
+		*			this.objects.ball.y 		стартовая позиция по y
+		*
+		* @return void
+		*/
 		restartBall: function () {
 			this.objects.ball.x = game.params.width/2;
 			this.objects.ball.y = game.params.height/2;
@@ -316,14 +444,30 @@
 			this.objects.ball.yspeed = 3;
 		},
 
-		//Рестарт игры
+		/**
+		* Работа с методом restartGame {}  рестарт игры
+		*
+		* запускает заного игру
+		*
+		* @param	void
+		*
+		* @return 	void
+		*/
 		restartGame: function () {
 			this.stopGame();
 			this.startGame();
 		}
 	};
 
-	//При загрузке window, стартуем нашу игру
+	/**
+		* Работа с методом window.onload {}  запуск окна
+		*
+		* запускает игру сразуже после прогруски главного окна
+		*
+		* @param	window.game		объявляем объект 
+		*
+		* @return 	void
+		*/
 	window.onload = function () {
 		window.game = new Game();
 		
