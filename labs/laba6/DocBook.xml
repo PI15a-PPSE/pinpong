@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article version="5.1" xmlns="http://docbook.org/ns/docbook"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:xila="http://www.w3.org/2001/XInclude/local-attributes"
+    xmlns:xi="http://www.w3.org/2001/XInclude"
+    xmlns:trans="http://docbook.org/ns/transclusion"
+    xmlns:svg="http://www.w3.org/2000/svg"
+    xmlns:m="http://www.w3.org/1998/Math/MathML"
+    xmlns:html="http://www.w3.org/1999/xhtml"
+    xmlns:db="http://docbook.org/ns/docbook">
+    <info>
+        <title>Программный Продукт "Игра PinPong"</title>
+        
+        <author>
+            <personname><firstname>Вадим</firstname><surname>Волковский</surname></personname>
+            
+            <affiliation>
+                <orgname>ДонНТУ</orgname>
+            </affiliation>
+        </author>
+        
+        <pubdate>03-12-2018</pubdate>
+    </info>
+    
+    <section>
+        <title>Описание продукта</title>
+        
+        <para>Программный продукт <emphasis role="bold">PinPong</emphasis>был
+            разработан для развлечения. Игра содержит в себе Шар и две ракетки
+            для двух игроков. Развивает реакцию и аналитическое мышление</para>
+    </section>
+    
+    <section>
+        <title>Первый запуск</title>
+        
+        <para>При запуске игры пользователю предоставлен 2 ракетки, которые содержат
+            возможность управлять шариком обивая его от себя, движения шарика обрабатывается следующей
+            функцией:</para>
+        
+        <programlisting>    
+            physic: function () {
+				//Для краткости записи
+				var ball = game.objects.ball,
+					b1 = game.objects.bracket1,
+					b2 = game.objects.bracket2;
+				
+				//Передвигаем шар
+				game.objects.ball.move();
+				//Отскок Справа
+				if (ball.x + ball.radius/2 > game.params.width) {
+					game.objects.ball.xspeed = -game.objects.ball.xspeed;
+				}
+				//Отскок шарика от 2 блока
+				if(ball.x >= this.params.width-50) {
+					ball.xspeed = -ball.xspeed;
+					//Ускоряем шарик
+					ball.xspeed = ball.xspeed * ball.bounce;
+				}
+
+				//В состоянии ожидания пуска шарика от ракетки игрока, выставляем шарик рядом с ракеткой забившего игрока.
+				if(this.params.state === 'playerwait') {
+					ball.xspeed = 0;
+					ball.yspeed = 0;
+					if(this.params.lastGoalPlayer === 'player1') {
+						ball.x 	= this.params.lastGoalBracket.x + this.params.lastGoalBracket.w + ball.radius + 1;
+						ball.y 	= this.params.lastGoalBracket.y + this.params.lastGoalBracket.h/2;
+					}
+					if(this.params.lastGoalPlayer === 'player2') {
+						ball.x 	= this.params.lastGoalBracket.x - ball.radius - 1;
+						ball.y 	= this.params.lastGoalBracket.y + this.params.lastGoalBracket.h/2;
+					}
+				}
+				if(b1.y+b1.h >= this.params.height) b1.y = this.params.height-b1.h;
+				if(b2.y+b2.h >= this.params.height) b2.y = this.params.height-b2.h;
+            }
+    </programlisting>
+        
+        <para>Нажатие клавиш обрабатывается ниже:</para>
+        
+        <programlisting>
+                keyDownEvent: function (event) {
+				    var kCode = event.keyCode;
+					//1-вверх 
+					if(kCode === 49) {
+						game.objects.bracket1.y = game.objects.bracket1.y + game.objects.bracket1.speed;
+					} 
+					//2-вниз
+					if(kCode === 50) {
+						game.objects.bracket1.y = game.objects.bracket1.y - game.objects.bracket1.speed;
+					} 
+					//9-вверх 
+					if(kCode === 57) {
+						game.objects.bracket2.y = game.objects.bracket2.y + game.objects.bracket2.speed;
+					} 
+					//0-вниз
+					if(kCode === 48) {
+						game.objects.bracket2.y = game.objects.bracket2.y - game.objects.bracket2.speed;
+					} 
+					//E - рестарт шарика
+					if(kCode === 69) {
+						this.restartBall();
+					}
+					//R - рестарт игры
+					if(kCode === 82) {
+						this.restartGame();
+					}
+					//Пробел - пуск шарика
+					if(kCode === 32) {
+						this.kickBall();
+					}
+                }
+    </programlisting>
+        
+        <para>Так же в игре присутствует логика :</para>
+        
+        <programlisting>
+            logic: function () {
+				//Для краткости записи
+				var ball = game.objects.ball;
+
+				//Если сейчас идет игра
+				if(this.params.state == 'game') {
+
+					//Шарик оказался за выторым игроком
+					if (ball.x + ball.radius/2 > game.params.width) {
+						//Засчтитаем гол
+						this.objects.player1.rate++;
+						//Сменим состояние игры
+						this.params.state = 'playerwait';
+						//Сохарним информацию о забившем
+						this.params.lastGoalBracket = this.objects.bracket1;
+						this.params.lastGoalPlayer = 'player1';
+					}
+
+					//Проверяем наличие победителя
+					//Если кто-то из игроков набрал необходимое количество очков
+					//Он выиграл
+					if(this.objects.player1.rate === this.params.maxRate) {
+						alert('1 игрок выиграл');
+						this.gameRestart();
+					}
+
+					if(this.objects.player2.rate === this.params.maxRate) {
+						alert('2 игрок выиграл');
+						this.gameRestart();
+					}
+				}
+			}
+    </programlisting>
+        
+        <para>Таким образом, было рассмотрено 3 варианта развития событий, с
+            приведенным кодом.</para>
+    </section>
+</article>
